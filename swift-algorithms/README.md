@@ -6,8 +6,9 @@ The goal is to **explain/understand** how algorithms work with focus on make a r
 That said this can hold algorithms common excersices and tipical interview tasks but as internal (not exposed in the package).
 
 This is for study porpuses so don't worry if we duplicate implementations for big sources like:
-[raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club)
-[apple/swift-algorithms](https://github.com/apple/swift-algorithms)
+
+* [raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club)
+* [apple/swift-algorithms](https://github.com/apple/swift-algorithms)
 
 ## Contribution Guidelines
 Just open a Pull Request, we only ask to follow this simple guidelines:
