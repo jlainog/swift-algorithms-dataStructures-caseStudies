@@ -2,8 +2,8 @@
 
 An open-source package that host two main packages:
 
-* [swift-algoritms](/swift-algorithms/README.markdown)
-* [swift-data-structures](/swift-data-structures/README.markdown)
+* [swift-algoritms](/swift-algorithms/README.md)
+* [swift-data-structures](/swift-data-structures/README.md)
 
 and Case Studies set of examples.
 
