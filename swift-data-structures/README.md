@@ -5,7 +5,8 @@ An open-source package that will host data structures as a study excersice.
 The goal is to **explain/understand** common data structures with focus on make a reusable package.
 
 This is for study porpuses so don't worry if we duplicate implementations for big sources like:
-[raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club)
+
+* [raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club)
 
 ## Contribution Guidelines
 Just open a Pull Request, we only ask to follow this simple guidelines:
