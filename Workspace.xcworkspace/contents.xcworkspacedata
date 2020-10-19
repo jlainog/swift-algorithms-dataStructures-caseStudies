@@ -5,6 +5,9 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
+      location = "group:swift-case-studies/CaseStudies.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:swift-algorithms">
    </FileRef>
    <FileRef
