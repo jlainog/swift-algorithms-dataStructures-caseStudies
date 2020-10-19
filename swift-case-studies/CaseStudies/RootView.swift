@@ -2,8 +2,15 @@ import SwiftUI
 
 struct RootView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            Form {
+                NavigationLink(
+                    "Search as you type",
+                    destination: SeachAsYouTypeView_Previews.previews
+                )
+            }
+            .navigationTitle("Case Studies")
+        }
     }
 }
 

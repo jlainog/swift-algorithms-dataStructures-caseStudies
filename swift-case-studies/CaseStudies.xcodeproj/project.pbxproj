@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21167587253E3BEE0097785B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 21167586253E3BEE0097785B /* README.md */; };
+		21167591253E41C60097785B /* 01-SeachAsYouTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21167590253E41C60097785B /* 01-SeachAsYouTypeView.swift */; };
 		21AEEFDE253E3B690057E515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEEFDD253E3B690057E515 /* AppDelegate.swift */; };
 		21AEEFE0253E3B690057E515 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEEFDF253E3B690057E515 /* SceneDelegate.swift */; };
 		21AEEFE2253E3B690057E515 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEEFE1253E3B690057E515 /* RootView.swift */; };
@@ -29,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		21167586253E3BEE0097785B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2116758D253E3EF60097785B /* 01-SearchAsYouType.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-SearchAsYouType.md"; sourceTree = "<group>"; };
+		21167590253E41C60097785B /* 01-SeachAsYouTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "01-SeachAsYouTypeView.swift"; sourceTree = "<group>"; };
 		21AEEFDA253E3B690057E515 /* CaseStudies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaseStudies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AEEFDD253E3B690057E515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AEEFDF253E3B690057E515 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,10 +63,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2116758C253E3ED90097785B /* Guides */ = {
+			isa = PBXGroup;
+			children = (
+				2116758D253E3EF60097785B /* 01-SearchAsYouType.md */,
+			);
+			path = Guides;
+			sourceTree = "<group>";
+		};
 		21AEEFD1253E3B690057E515 = {
 			isa = PBXGroup;
 			children = (
 				21167586253E3BEE0097785B /* README.md */,
+				2116758C253E3ED90097785B /* Guides */,
 				21AEEFDC253E3B690057E515 /* CaseStudies */,
 				21AEEFF3253E3B6C0057E515 /* CaseStudiesTests */,
 				21AEEFDB253E3B690057E515 /* Products */,
@@ -85,6 +97,7 @@
 				21AEEFDD253E3B690057E515 /* AppDelegate.swift */,
 				21AEEFDF253E3B690057E515 /* SceneDelegate.swift */,
 				21AEEFE1253E3B690057E515 /* RootView.swift */,
+				21167590253E41C60097785B /* 01-SeachAsYouTypeView.swift */,
 				21AEEFE3253E3B6B0057E515 /* Assets.xcassets */,
 				21AEEFE8253E3B6C0057E515 /* LaunchScreen.storyboard */,
 				21AEEFEB253E3B6C0057E515 /* Info.plist */,
@@ -212,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21AEEFDE253E3B690057E515 /* AppDelegate.swift in Sources */,
+				21167591253E41C60097785B /* 01-SeachAsYouTypeView.swift in Sources */,
 				21AEEFE0253E3B690057E515 /* SceneDelegate.swift in Sources */,
 				21AEEFE2253E3B690057E515 /* RootView.swift in Sources */,
 			);
