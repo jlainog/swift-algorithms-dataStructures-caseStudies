@@ -62,7 +62,8 @@ final class SearchAsYouTypeTests: XCTestCase {
             dependencies: .init(
                 searchClient: SearchClient(
                     search: {
-                        AnyPublisher<[String], URLError>(value: [$0])
+                        AnyPublisher<[String], URLError>
+                            .just([$0])
                             .delay(for: .milliseconds(500), scheduler: self.testScheduler)
                             .eraseToAnyPublisher()
                     }

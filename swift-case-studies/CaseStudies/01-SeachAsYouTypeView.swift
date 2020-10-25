@@ -7,108 +7,11 @@ import CombineSchedulers
  https://www.pointfree.co/blog/posts/45-open-sourcing-combineschedulers
  */
 
-extension AnyPublisher {
-    public init(value: Output) {
-        self.init(Just(value).setFailureType(to: Failure.self))
-    }
-    
-    public init(error: Failure) {
-        self.init(Fail(error: error))
-    }
-}
-
-// MARK: Cancellable + AnyPublisher
-var cancellationCancellables: [AnyHashable: Set<AnyCancellable>] = [:]
-let cancellablesLock = NSRecursiveLock()
-
-extension AnyPublisher {
-    public func cancellable(id: AnyHashable) -> Self {
-      let publisher = Deferred { () -> AnyPublisher<Output, Failure> in
-        cancellablesLock.lock()
-        defer { cancellablesLock.unlock() }
-
-        let subject = PassthroughSubject<Output, Failure>()
-        let cancellable = self.subscribe(subject)
-
-        var cancellationCancellable: AnyCancellable!
-        cancellationCancellable = AnyCancellable {
-            cancellablesLock.lock()
-            defer { cancellablesLock.unlock() }
-            
-            subject.send(completion: .finished)
-            cancellable.cancel()
-            cancellationCancellables[id]?.remove(cancellationCancellable)
-            
-            if cancellationCancellables[id]?.isEmpty == .some(true) {
-              cancellationCancellables[id] = nil
-            }
-        }
-
-        cancellationCancellables[id, default: []].insert(cancellationCancellable)
-
-        return subject.handleEvents(
-          receiveCompletion: { _ in cancellationCancellable.cancel() },
-          receiveCancel: cancellationCancellable.cancel
-        )
-        .eraseToAnyPublisher()
-      }
-      .eraseToAnyPublisher()
-
-        return .concatenate([.cancel(id: id), publisher])
-    }
-    
-    public static func cancel(id: AnyHashable) -> AnyPublisher {
-        Deferred { () -> AnyPublisher<Output, Failure> in
-            cancellablesLock.lock()
-            defer { cancellablesLock.unlock() }
-            
-            cancellationCancellables[id]?.forEach { $0.cancel() }
-            return Just<Output?>(nil)
-                .setFailureType(to: Failure.self)
-                .compactMap { $0 }
-                .eraseToAnyPublisher()
-        }
-        .eraseToAnyPublisher()
-    }
-    
-    public static func concatenate<C: Collection>(
-      _ effects: C
-    ) -> AnyPublisher where C.Element == AnyPublisher {
-      guard let first = effects.first else { return Empty(completeImmediately: true).eraseToAnyPublisher() }
-
-      return
-        effects
-        .dropFirst()
-        .reduce(into: first) { effects, effect in
-            effects = effects.append(effect).eraseToAnyPublisher()
-        }
-    }
-}
-
 struct SearchClient {
     var search: (String) -> AnyPublisher<[String], URLError>
 }
 
-extension SearchClient {
-    static let echo = Self(
-        search: { .init(value: [$0]) }
-    )
-    
-    static let theMovieDb = Self(
-        search: {
-            TheMovieDb
-                .searchMovie(query: $0)
-                .map { $0.results.map(\.title) }
-                .mapError {
-                    ($0 as? URLError) ?? URLError(.networkConnectionLost)
-                }
-                .eraseToAnyPublisher()
-        }
-    )
-}
-
 class SearchAsYouTypeViewModel: ObservableObject {
-    struct CancelId: Hashable {}
     struct Dependencies {
         var searchClient: SearchClient
         var scheduler: AnySchedulerOf<DispatchQueue> =  DispatchQueue.main.eraseToAnyScheduler()
@@ -116,11 +19,14 @@ class SearchAsYouTypeViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     private let dependencies: Dependencies
+    
     @Published var query: String = ""
     @Published var results: [String] = []
     @Published var isRequestInFlight = false
     
     init(dependencies: Dependencies) {
+        struct CancelId: Hashable {}
+        
         self.dependencies = dependencies
         
         $query
@@ -185,4 +91,22 @@ struct SeachAsYouTypeView_Previews: PreviewProvider {
             )
         )
     }
+}
+
+extension SearchClient {
+    static let echo = Self(
+        search: { .just([$0]) }
+    )
+    
+    static let theMovieDb = Self(
+        search: {
+            TheMovieDb
+                .searchMovie(query: $0)
+                .map { $0.results.map(\.title) }
+                .mapError {
+                    ($0 as? URLError) ?? URLError(.networkConnectionLost)
+                }
+                .eraseToAnyPublisher()
+        }
+    )
 }
