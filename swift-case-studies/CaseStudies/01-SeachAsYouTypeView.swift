@@ -81,15 +81,43 @@ struct SeachAsYouTypeView: View {
     }
 }
 
-struct SeachAsYouTypeView_Previews: PreviewProvider {
-    static var previews: some View {
-        SeachAsYouTypeView(
-            viewModel: .init(
-                dependencies: .init(
-                    searchClient: .theMovieDb
-                )
+extension SeachAsYouTypeView {
+    init(_ searchClient: SearchClient) {
+        self.viewModel = .init(
+            dependencies: .init(
+                searchClient: searchClient
             )
         )
+    }
+}
+
+struct SearchAsYouTypeOptionsView: View {
+    var searchClientes: [(String, SearchClient)] = [
+        ("Echo", .echo),
+        ("The Movie DB", .theMovieDb),
+        ("Mercado Libre", .mercadolibre),
+        ("Spotify Artists", .spotifyArtists)
+    ]
+    
+    var body: some View {
+        List {
+            ForEach(searchClientes, id: \.0) {
+                NavigationLink(
+                    $0.0,
+                    destination: SeachAsYouTypeView($0.1)
+                        .navigationTitle($0.0)
+                )
+            }
+        }
+        .navigationTitle("Search as you type")
+    }
+}
+
+struct SeachAsYouTypeView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            SearchAsYouTypeOptionsView()
+        }
     }
 }
 
@@ -103,6 +131,30 @@ extension SearchClient {
             TheMovieDb
                 .searchMovie(query: $0)
                 .map { $0.results.map(\.title) }
+                .mapError {
+                    ($0 as? URLError) ?? URLError(.networkConnectionLost)
+                }
+                .eraseToAnyPublisher()
+        }
+    )
+    
+    static let mercadolibre = Self(
+        search: {
+            MercadoLibre
+                .search(query: $0, siteId: "MCO")
+                .map { $0.results.map(\.title) }
+                .mapError {
+                    ($0 as? URLError) ?? URLError(.networkConnectionLost)
+                }
+                .eraseToAnyPublisher()
+        }
+    )
+    
+    static let spotifyArtists = Self(
+        search: {
+            Spotify
+                .searchArtist(query: $0)
+                .map { $0.artists.items.map(\.name) }
                 .mapError {
                     ($0 as? URLError) ?? URLError(.networkConnectionLost)
                 }
