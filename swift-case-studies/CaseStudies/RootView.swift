@@ -6,7 +6,7 @@ struct RootView: View {
             Form {
                 NavigationLink(
                     "Search as you type",
-                    destination: SeachAsYouTypeView_Previews.previews
+                    destination: EmptyView()// SeachAsYouTypeView_Previews.previews
                 )
             }
             .navigationTitle("Case Studies")

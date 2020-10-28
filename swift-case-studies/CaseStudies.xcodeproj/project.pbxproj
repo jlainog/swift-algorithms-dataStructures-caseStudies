@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		21AEEFE7253E3B6C0057E515 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21AEEFE6253E3B6C0057E515 /* Preview Assets.xcassets */; };
 		21AEEFEA253E3B6C0057E515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AEEFE8253E3B6C0057E515 /* LaunchScreen.storyboard */; };
 		21AEEFF5253E3B6C0057E515 /* CaseStudiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEEFF4253E3B6C0057E515 /* CaseStudiesTests.swift */; };
+		63D53E9D254A240400F091E1 /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 63D53E9C254A240400F091E1 /* CombineSchedulers */; };
+		63D53EA4254A28BE00F091E1 /* CarPicturesInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D53EA1254A28BE00F091E1 /* CarPicturesInformation.swift */; };
+		63D53EA5254A28BE00F091E1 /* CarResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D53EA2254A28BE00F091E1 /* CarResult.swift */; };
+		63D53EA6254A28BE00F091E1 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D53EA3254A28BE00F091E1 /* CarModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,9 @@
 		21AEEFF0253E3B6C0057E515 /* CaseStudiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaseStudiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AEEFF4253E3B6C0057E515 /* CaseStudiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudiesTests.swift; sourceTree = "<group>"; };
 		21AEEFF6253E3B6C0057E515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63D53EA1254A28BE00F091E1 /* CarPicturesInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPicturesInformation.swift; sourceTree = "<group>"; };
+		63D53EA2254A28BE00F091E1 /* CarResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarResult.swift; sourceTree = "<group>"; };
+		63D53EA3254A28BE00F091E1 /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D53E9D254A240400F091E1 /* CombineSchedulers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +102,7 @@
 		21AEEFDC253E3B690057E515 /* CaseStudies */ = {
 			isa = PBXGroup;
 			children = (
+				63D53EA0254A28B200F091E1 /* Models */,
 				21AEEFDD253E3B690057E515 /* AppDelegate.swift */,
 				21AEEFDF253E3B690057E515 /* SceneDelegate.swift */,
 				21AEEFE1253E3B690057E515 /* RootView.swift */,
@@ -123,6 +132,16 @@
 			path = CaseStudiesTests;
 			sourceTree = "<group>";
 		};
+		63D53EA0254A28B200F091E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63D53EA3254A28BE00F091E1 /* CarModel.swift */,
+				63D53EA1254A28BE00F091E1 /* CarPicturesInformation.swift */,
+				63D53EA2254A28BE00F091E1 /* CarResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +158,9 @@
 			dependencies = (
 			);
 			name = CaseStudies;
+			packageProductDependencies = (
+				63D53E9C254A240400F091E1 /* CombineSchedulers */,
+			);
 			productName = CaseStudies;
 			productReference = 21AEEFDA253E3B690057E515 /* CaseStudies.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +210,9 @@
 				Base,
 			);
 			mainGroup = 21AEEFD1253E3B690057E515;
+			packageReferences = (
+				63D53E9B254A240300F091E1 /* XCRemoteSwiftPackageReference "combine-schedulers" */,
+			);
 			productRefGroup = 21AEEFDB253E3B690057E515 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,6 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D53EA4254A28BE00F091E1 /* CarPicturesInformation.swift in Sources */,
+				63D53EA6254A28BE00F091E1 /* CarModel.swift in Sources */,
+				63D53EA5254A28BE00F091E1 /* CarResult.swift in Sources */,
 				21AEEFDE253E3B690057E515 /* AppDelegate.swift in Sources */,
 				21167591253E41C60097785B /* 01-SeachAsYouTypeView.swift in Sources */,
 				21AEEFE0253E3B690057E515 /* SceneDelegate.swift in Sources */,
@@ -490,6 +518,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63D53E9B254A240300F091E1 /* XCRemoteSwiftPackageReference "combine-schedulers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/combine-schedulers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63D53E9C254A240400F091E1 /* CombineSchedulers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63D53E9B254A240300F091E1 /* XCRemoteSwiftPackageReference "combine-schedulers" */;
+			productName = CombineSchedulers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 21AEEFD2253E3B690057E515 /* Project object */;
 }
