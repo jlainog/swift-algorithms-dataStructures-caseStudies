@@ -3,30 +3,39 @@ import Combine
 import CombineSchedulers
 
 class SeachAsYouTypeViewModel: ObservableObject {
-
+  
   struct Dependencies {
     var search: (String) -> AnyPublisher<[String], Never>
     var mainQueue: AnySchedulerOf<DispatchQueue> = DispatchQueue.main.eraseToAnyScheduler()
   }
-
+  
   private var dependencies: Dependencies
-
+  
   @Published var results: [String] = []
   @Published var query: String = ""
-
+  @Published var isSearching = false
+  
   var cancellable: AnyCancellable?
-
+  
   init(dependencies: Dependencies) {
     self.dependencies = dependencies
-
+    
     cancellable = $query
+      .filter({ (query) -> Bool in
+        query.count >= 3
+      })
+      .debounce(for: .milliseconds(300),
+                scheduler: dependencies.mainQueue)
+      .removeDuplicates()
+      .handleEvents( receiveOutput: { (_) in
+        self.isSearching = true
+      })
       .flatMap(dependencies.search)
       .receive(on: dependencies.mainQueue)
+      .handleEvents(receiveOutput: { (_) in
+        self.isSearching = false
+      })
       .assign(to: \.results, on: self)
-//      .sink { (results) in
-//        self.results = results
-//      }
-
   }
 }
 
@@ -46,7 +55,7 @@ extension SeachAsYouTypeViewModel.Dependencies {
 
 struct SeachAsYouTypeView: View {
   @ObservedObject var viewModel: SeachAsYouTypeViewModel
-
+  
   var body: some View {
     VStack {
       TextField(
@@ -65,7 +74,7 @@ struct SeachAsYouTypeView: View {
 }
 
 struct SeachAsYouTypeView_Previews: PreviewProvider {
-    static var previews: some View {
-      SeachAsYouTypeView(viewModel: SeachAsYouTypeViewModel(dependencies: .live))
-    }
+  static var previews: some View {
+    SeachAsYouTypeView(viewModel: SeachAsYouTypeViewModel(dependencies: .live))
+  }
 }
