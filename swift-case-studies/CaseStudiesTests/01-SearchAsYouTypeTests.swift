@@ -82,7 +82,11 @@ final class SearchAsYouTypeTests: XCTestCase {
         XCTAssertEqual(sut.results, [])
         XCTAssertTrue(sut.isRequestInFlight)
         
-        testScheduler.advance(by: .milliseconds(500))
+        testScheduler.advance(by: .milliseconds(200))
+        XCTAssertEqual(sut.results, [])
+        XCTAssertTrue(sut.isRequestInFlight)
+        
+        testScheduler.advance(by: .milliseconds(300))
         XCTAssertEqual(sut.results, ["second"])
         XCTAssertFalse(sut.isRequestInFlight)
     }

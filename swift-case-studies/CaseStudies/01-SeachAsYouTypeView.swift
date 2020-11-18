@@ -43,7 +43,7 @@ class SearchAsYouTypeViewModel: ObservableObject {
             .flatMap { query -> AnyPublisher<[String], URLError> in
                 dependencies.searchClient
                     .search(query)
-                    .cancellable(id: CancelId())
+                    .cancellable(id: CancelId(), cancelInFlight: true)
             }
             .receive(on: dependencies.scheduler)
             .handleEvents(
