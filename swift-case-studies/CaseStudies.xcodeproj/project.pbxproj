@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02EE6A6F256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE6A6E256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift */; };
 		210A2842253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A2841253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift */; };
 		210A2847253FE7CA0054D0B1 /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 210A2846253FE7CA0054D0B1 /* CombineSchedulers */; };
 		210A284C253FFB590054D0B1 /* TheMovieDbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A284B253FFB590054D0B1 /* TheMovieDbAPI.swift */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02EE6A6D256F381E009C69F3 /* 02-ArchitecturalPatterns.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "02-ArchitecturalPatterns.md"; sourceTree = "<group>"; };
+		02EE6A6E256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "02-ArchitecturalPatterns.swift"; sourceTree = "<group>"; };
 		210A2841253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "01-SearchAsYouTypeTests.swift"; sourceTree = "<group>"; };
 		210A284B253FFB590054D0B1 /* TheMovieDbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDbAPI.swift; sourceTree = "<group>"; };
 		21167586253E3BEE0097785B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -77,6 +80,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02EE6A6C256F37BA009C69F3 /* 02-ArchitecturalPatterns */ = {
+			isa = PBXGroup;
+			children = (
+				02EE6A74256F3CA4009C69F3 /* MVC */,
+			);
+			path = "02-ArchitecturalPatterns";
+			sourceTree = "<group>";
+		};
+		02EE6A74256F3CA4009C69F3 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
 		210A284A253FFB430054D0B1 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				2116758D253E3EF60097785B /* 01-SearchAsYouType.md */,
+				02EE6A6D256F381E009C69F3 /* 02-ArchitecturalPatterns.md */,
 			);
 			path = Guides;
 			sourceTree = "<group>";
@@ -133,6 +152,8 @@
 				21AEEFDF253E3B690057E515 /* SceneDelegate.swift */,
 				21AEEFE1253E3B690057E515 /* RootView.swift */,
 				21167590253E41C60097785B /* 01-SeachAsYouTypeView.swift */,
+				02EE6A6E256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift */,
+				02EE6A6C256F37BA009C69F3 /* 02-ArchitecturalPatterns */,
 				21AEEFE3253E3B6B0057E515 /* Assets.xcassets */,
 				21AEEFE8253E3B6C0057E515 /* LaunchScreen.storyboard */,
 				21AEEFEB253E3B6C0057E515 /* Info.plist */,
@@ -266,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EE6A6F256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift in Sources */,
 				217C80972547B39900B5E307 /* SpotifyAPI.swift in Sources */,
 				21AEEFDE253E3B690057E515 /* AppDelegate.swift in Sources */,
 				217C80932547B39200B5E307 /* MeLiAPI.swift in Sources */,
