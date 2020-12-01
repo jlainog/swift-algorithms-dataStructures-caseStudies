@@ -8,6 +8,11 @@ struct RootView: View {
                     "Search as you type",
                     destination: SearchAsYouTypeOptionsView()
                 )
+                
+                NavigationLink(
+                    "Architectural Patterns",
+                    destination: ArchitecturalPatternsView()
+                )
             }
             .navigationTitle("Case Studies")
         }

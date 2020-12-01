@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024989B125770004000BAD0D /* MVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024989B025770004000BAD0D /* MVCViewController.swift */; };
+		024989B5257700B7000BAD0D /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024989B4257700B7000BAD0D /* NibLessViewController.swift */; };
 		02EE6A6F256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE6A6E256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift */; };
 		210A2842253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A2841253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift */; };
 		210A2847253FE7CA0054D0B1 /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 210A2846253FE7CA0054D0B1 /* CombineSchedulers */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		024989B025770004000BAD0D /* MVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCViewController.swift; sourceTree = "<group>"; };
+		024989B4257700B7000BAD0D /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
 		02EE6A6D256F381E009C69F3 /* 02-ArchitecturalPatterns.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "02-ArchitecturalPatterns.md"; sourceTree = "<group>"; };
 		02EE6A6E256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "02-ArchitecturalPatterns.swift"; sourceTree = "<group>"; };
 		210A2841253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "01-SearchAsYouTypeTests.swift"; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				02EE6A74256F3CA4009C69F3 /* MVC */,
+				024989B4257700B7000BAD0D /* NibLessViewController.swift */,
 			);
 			path = "02-ArchitecturalPatterns";
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 		02EE6A74256F3CA4009C69F3 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
+				024989B025770004000BAD0D /* MVCViewController.swift */,
 			);
 			path = MVC;
 			sourceTree = "<group>";
@@ -291,6 +297,8 @@
 				217C80972547B39900B5E307 /* SpotifyAPI.swift in Sources */,
 				21AEEFDE253E3B690057E515 /* AppDelegate.swift in Sources */,
 				217C80932547B39200B5E307 /* MeLiAPI.swift in Sources */,
+				024989B125770004000BAD0D /* MVCViewController.swift in Sources */,
+				024989B5257700B7000BAD0D /* NibLessViewController.swift in Sources */,
 				21167591253E41C60097785B /* 01-SeachAsYouTypeView.swift in Sources */,
 				21AEEFE0253E3B690057E515 /* SceneDelegate.swift in Sources */,
 				217C808B25462E6600B5E307 /* AnyPublisher+Helpers.swift in Sources */,
