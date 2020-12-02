@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		024989B125770004000BAD0D /* MVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024989B025770004000BAD0D /* MVCViewController.swift */; };
 		024989B5257700B7000BAD0D /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024989B4257700B7000BAD0D /* NibLessViewController.swift */; };
+		024989B9257707A3000BAD0D /* TheCocktailDbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024989B8257707A3000BAD0D /* TheCocktailDbAPI.swift */; };
 		02EE6A6F256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE6A6E256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift */; };
 		210A2842253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A2841253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift */; };
 		210A2847253FE7CA0054D0B1 /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 210A2846253FE7CA0054D0B1 /* CombineSchedulers */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		024989B025770004000BAD0D /* MVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCViewController.swift; sourceTree = "<group>"; };
 		024989B4257700B7000BAD0D /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
+		024989B8257707A3000BAD0D /* TheCocktailDbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCocktailDbAPI.swift; sourceTree = "<group>"; };
 		02EE6A6D256F381E009C69F3 /* 02-ArchitecturalPatterns.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "02-ArchitecturalPatterns.md"; sourceTree = "<group>"; };
 		02EE6A6E256F3C92009C69F3 /* 02-ArchitecturalPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "02-ArchitecturalPatterns.swift"; sourceTree = "<group>"; };
 		210A2841253FD45C0054D0B1 /* 01-SearchAsYouTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "01-SearchAsYouTypeTests.swift"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				217C80922547B39200B5E307 /* MeLiAPI.swift */,
 				217C80962547B39900B5E307 /* SpotifyAPI.swift */,
 				210A284B253FFB590054D0B1 /* TheMovieDbAPI.swift */,
+				024989B8257707A3000BAD0D /* TheCocktailDbAPI.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				024989B5257700B7000BAD0D /* NibLessViewController.swift in Sources */,
 				21167591253E41C60097785B /* 01-SeachAsYouTypeView.swift in Sources */,
 				21AEEFE0253E3B690057E515 /* SceneDelegate.swift in Sources */,
+				024989B9257707A3000BAD0D /* TheCocktailDbAPI.swift in Sources */,
 				217C808B25462E6600B5E307 /* AnyPublisher+Helpers.swift in Sources */,
 				21AEEFE2253E3B690057E515 /* RootView.swift in Sources */,
 				217C8087254627AA00B5E307 /* Cancellation.swift in Sources */,
