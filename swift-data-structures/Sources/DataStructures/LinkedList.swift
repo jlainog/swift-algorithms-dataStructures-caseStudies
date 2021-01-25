@@ -20,7 +20,11 @@ public struct LinkedList<Value> {
         self.init()
         array.forEach { append($0) }
     }
-
+    
+    /// Adds a Value at the front of the list.
+    /// - Parameter value: value to be pushed.
+    /// 
+    /// - Complexity: O(1)
     public mutating func push(_ value: Value) {
         let node = Node(value: value, next: head)
         
@@ -29,9 +33,12 @@ public struct LinkedList<Value> {
         
         if tail == nil { tail = head }
     }
-    
-    @discardableResult
-    public mutating func pop() -> Value? {
+        
+    /// Removes value at front of the list.
+    /// - Returns: the removed value.
+    ///
+    /// - Complexity: O(1)
+    @discardableResult public mutating func pop() -> Value? {
         defer {
             head = head?.next
             count -= 1
@@ -42,7 +49,10 @@ public struct LinkedList<Value> {
         return head?.value
     }
 
-    
+    /// Add a value at the end of the list.
+    /// - Parameter value: value to be appended.
+    ///
+    /// - Complexity: O(1)
     public mutating func append(_ value: Value) {
         copyNodes()
         
@@ -57,8 +67,11 @@ public struct LinkedList<Value> {
         count += 1
     }
     
-    @discardableResult
-    public mutating func removeLast() -> Value? {
+    /// removes value at the end of the list.
+    /// - Returns: the removed value.
+    ///
+    /// - Complexity: O(1)
+    @discardableResult public mutating func removeLast() -> Value? {
         copyNodes()
         
         guard head?.next != nil else {
@@ -79,8 +92,14 @@ public struct LinkedList<Value> {
         return current?.value
     }
     
-    @discardableResult
-    public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
+    /// Add a value after a node of the list.
+    /// - Parameters:
+    ///   - value: value to be inserted.
+    ///   - node: node after the value will be added.
+    /// - Returns: the inserted node.
+    ///
+    /// - Complexity: O(1)
+    @discardableResult public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
         guard tail !== node else {
             append(value)
             return tail!
@@ -93,8 +112,12 @@ public struct LinkedList<Value> {
         return insertedNode
     }
     
-    @discardableResult
-    public mutating func remove(after node: Node<Value>) -> Value? {
+    /// Removes value after a node of the list.
+    /// - Parameter node: node after the value will be removed.
+    /// - Returns: the removed value.
+    ///
+    /// - Complexity: O(1)
+    @discardableResult public mutating func remove(after node: Node<Value>) -> Value? {
         defer {
             let newNode = copyNodes(with: node) ?? node
             
