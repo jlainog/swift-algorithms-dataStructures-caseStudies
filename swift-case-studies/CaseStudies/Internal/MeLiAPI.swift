@@ -20,7 +20,22 @@ enum MercadoLibre {
     
     private static let seachPath = "/search"
     
+    static func search(query: String, siteId: String) async throws -> SearchResponse {
+        let (data, _) = try await URLSession.shared.data(
+            for: request(query: query, siteId: siteId)
+        )
+        return try decoder.decode(SearchResponse.self, from: data)
+    }
+    
     static func search(query: String, siteId: String) -> AnyPublisher<SearchResponse, Error> {
+        return URLSession.shared
+            .dataTaskPublisher(for: request(query: query, siteId: siteId))
+            .map(\.data)
+            .decode(type: SearchResponse.self, decoder: decoder)
+            .eraseToAnyPublisher()
+    }
+    
+    private static func request(query: String, siteId: String) -> URLRequest {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host
@@ -31,10 +46,6 @@ enum MercadoLibre {
         
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
-        return URLSession.shared
-            .dataTaskPublisher(for: request)
-            .map(\.data)
-            .decode(type: SearchResponse.self, decoder: decoder)
-            .eraseToAnyPublisher()
+        return request
     }
 }
