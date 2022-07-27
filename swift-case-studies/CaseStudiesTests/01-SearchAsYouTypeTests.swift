@@ -5,7 +5,7 @@ import CombineSchedulers
 
 final class SearchAsYouTypeTests: XCTestCase {
     
-    let testScheduler = DispatchQueue.testScheduler
+    let testScheduler = DispatchQueue.test
     let testSubject = PassthroughSubject<[String], URLError>()
     var sut: SearchAsYouTypeViewModel!
     

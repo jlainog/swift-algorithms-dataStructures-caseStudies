@@ -92,7 +92,7 @@ extension SeachAsYouTypeView {
 }
 
 struct SearchAsYouTypeOptionsView: View {
-    var searchClientes: [(String, SearchClient)] = [
+    var searchClients: [(String, SearchClient)] = [
         ("Echo", .echo),
         ("The Movie DB", .theMovieDb),
         ("Mercado Libre", .mercadolibre),
@@ -101,7 +101,7 @@ struct SearchAsYouTypeOptionsView: View {
     
     var body: some View {
         List {
-            ForEach(searchClientes, id: \.0) {
+            ForEach(searchClients, id: \.0) {
                 NavigationLink(
                     $0.0,
                     destination: SeachAsYouTypeView($0.1)
